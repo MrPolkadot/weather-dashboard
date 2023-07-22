@@ -1,0 +1,21 @@
+/* .cities-column {
+    border: solid 2px black;
+} */
+
+li {
+    list-style: none;
+    font-weight: bold;
+}
+
+.hero {
+    background: rgb(42, 112, 238);
+    background: linear-gradient(29deg, rgba(42, 112, 238, 1) 0%, rgba(0, 166, 240, 1) 51%, rgba(234, 253, 37, 1) 98%);
+}
+
+#current-weather {
+    border: solid 1px black;
+}
+
+.card {
+    background-color: #1290FE;
+}

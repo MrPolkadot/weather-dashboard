@@ -37,6 +37,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 Useful links:
 
 * https://www.scaler.com/topics/javascript/import-js-file-in-js/
+* Tutorials on how to use the Bulma CSS library- https://www.youtube.com/@NetNinja
+* CSS Gradient for my colors: https://cssgradient.io/
 
 
 ## License

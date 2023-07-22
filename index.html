@@ -1,17 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
+
 <body>
-    <p id="error"></p>
+    <section class="py-6 hero is-info is-medium">
+        <div class="ml-6 hero-head">
+            <h1 class="title is-1 has-text-center">Weather Dashboard</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="columns">
+            <div class="cities-column column is-3">
+                <form class="box">
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input class="input is-medium is-rounded" type="text" id="city" placeholder="Enter city">
+                        </div>
+                        <div class="control">
+                            <button class="button is-medium is-info" id="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <ul>Add saved cities here</ul>
+                <li>city one</li>
+
+            </div>
+            <div class="column is-8">
+                <div class="columns is-multiline">
+                    <div class="column is-12 is-desktop">
+                        <div class="mb-6 p-5 content is-large" id="current-weather">
+                            <p class="title is-2" id="city-name-and-date">City Name + (Date)</p>
+                            <ul class="m-0">
+                                <li>Temp: </li>
+                                <li>Wind: </li>
+                                <li>Humidity: </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column is-8 is-desktop">
+                        <p class="title is-3">5-day Forecast:</p>
+                    </div>
+                    <div class="column is-8 is-desktop">
+                        <div class="columns">
+                            <div class="column is-4 is-desktop">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">Date Here</p>
+                                    </header>
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="" alt="" class="src">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content pb-6 pl-0">
+                                        <div class="content">
+                                            <ul>
+                                                <li>Temp: </li>
+                                                <li>Wind: </li>
+                                                <li>Humidity: </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-desktop">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">Date Here</p>
+                                    </header>
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="" alt="" class="src">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content pb-6 pl-0">
+                                        <div class="content">
+                                            <ul>
+                                                <li>Temp: </li>
+                                                <li>Wind: </li>
+                                                <li>Humidity: </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-desktop">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">Date Here</p>
+                                    </header>
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="" alt="" class="src">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content pb-6 pl-0">
+                                        <div class="content">
+                                            <ul>
+                                                <li>Temp: </li>
+                                                <li>Wind: </li>
+                                                <li>Humidity: </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-desktop">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">Date Here</p>
+                                    </header>
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="" alt="" class="src">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content pb-6 pl-0">
+                                        <div class="content">
+                                            <ul>
+                                                <li>Temp: </li>
+                                                <li>Wind: </li>
+                                                <li>Humidity: </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4 is-desktop">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">Date Here</p>
+                                    </header>
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="" alt="" class="src">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content pb-6 pl-0">
+                                        <div class="content">
+                                            <ul>
+                                                <li>Temp: </li>
+                                                <li>Wind: </li>
+                                                <li>Humidity: </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="./assets/script.js"></script>
-    <script src="./assets/api-data.js"></script>
-    
-    
+
 </body>
+
 </html>
