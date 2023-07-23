@@ -1,56 +1,63 @@
 $(document).ready(function () {
-    
+
+
+    let currentCityWeather = document.getElementById("city-name-and-date");
+    let city = document.querySelector("#city");
+
+
+    const APIKEY = "ee3bdd85ae12cf0b59312c7a5aa514bb"; //This key will allow us to "fetch" the data from the weather api
+
     //Will be used to input a city name
     let submit = $("#submit");
     submit.on("click", function () {
-        getApi();
-    })
+        api.getLocation();
+        //currentCityWeather.innerText = data.city.name;
+    });
 
-    let showData = $("#data");
-    const APIKEY = "ee3bdd85ae12cf0b59312c7a5aa514bb"; //This key will allow us to "fetch" the data from the weather api
+    const api = {
+        getLocation: () => {
+            let geoApi = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.value + "&appid=" + APIKEY;
+
+            fetch(geoApi)
+                .then(function (response) {
+                    console.log(response);
+                    if (!response.ok) throw new Error(response.statusText);
+                    return response.json();
+                })
+                .then(function (coord) {
+                    console.log(coord);
+                    currentCityWeather.textContent = coord[0].name;
+                    let latitude = coord[0].lat;
+                    let longitude = coord[0].lon;
+                    let weatherApi = "https://api.openweathermap.org/data/2.5/forecast?current&lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + APIKEY;
+                    fetch(weatherApi)
+                        .then(function (resp) {
+                            return resp.json();
+                        })
+                        .then(function (data) {
+                            console.log(data);
+                            api.displayWeather(data);
+                        })
+                })
 
 
+        },
+        displayWeather: (resp) => {
 
-    function getApi() {
-        let city = $("#city").val();
-        let geoApi = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + APIKEY;
-
-        fetch(geoApi)
-            .then(function (response) {
-                console.log(response);
-                // if (response.status === 400) {
-                //     console.log(response.status);
-                //     $("#error").text(badStatus + response.status);
-                // } else {
-                return response.json();
-            })
-            .then(function (coord) {
-                for (let i = 0; i < coord.length; i++) {
-                    let lat = coord[i].lat;
-                    let lon = coord[i].lon;
-                    console.log(lat);
-                    console.log(lon);
-                    async function getWeatherApi() {
-                        let weatherApi = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKEY;
-                        const response = await fetch(weatherApi);
-                        console.log(response);
-                        const data = await response.json();
-                        
-                        console.log(data);
-                        if (data) {
-                            for (let j = 0; j < data.length; i++) {
-                                console.log(data[i].city.name);
-                            }
-                        }
-                        return data;
-                    }
-                    getWeatherApi().catch(error => {
-                        console.log("error");
-                        console.error(error);
-                    });
-                }
-            });
+        }
     }
+
+
+
+
+});
+    // getWeatherApi().catch(error => {
+    //     console.log("error");
+    //     console.error(error);
+    // });
+
+
+
     // function getCoords(lat, lon) {
     //     fetch(geoApi)
     //         .then(function (response) {
@@ -92,13 +99,6 @@ $(document).ready(function () {
     //         console.error(error);
     //      });
 
-
-
-
-
-
-
-})
 
 
 
