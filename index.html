@@ -38,10 +38,10 @@
             </div>
             <div class="column is-8">
                 <div class="columns is-multiline">
-                    <div class="column is-12 is-desktop">
-                        <div class="mb-6 p-5 content is-large" id="current-weather">
+                    <div id="city-box" class="column is-12 is-desktop">
+                        <div class="mb-6 p-4 content is-large">
                             <p class="title is-2" id="city-name-and-date"></p>
-                            <ul class="m-0">
+                            <ul id="current-weather-main" class="m-0">
                                 <li>Temp: </li>
                                 <li>Wind: </li>
                                 <li>Humidity: </li>
@@ -52,20 +52,21 @@
                         <p class="title is-3">5-day Forecast:</p>
                     </div>
                     <div class="column is-8 is-desktop">
-                        <div class="columns">
+                        <div id="weather-card" class="columns">
                             <div class="column is-4 is-desktop">
-                                <div class="card">
+                                <div class="card has-text-white">
                                     <header class="card-header">
-                                        <p class="card-header-title has-text-white">Date Here</p>
+                                        <p id="date-01" class="card-header-title has-text-white">Date</p>
                                     </header>
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="" alt="" class="src">
+                                            <img id="icon-01" src="" alt="" class="src img-alt-01">
+                                            <figcaption id="weather-description-01"></figcaption>
                                         </figure>
                                     </div>
                                     <div class="card-content pb-6 pl-0">
-                                        <div class="content has-text-white">
-                                            <ul>
+                                        <div class="content">
+                                            <ul id="current-weather-01">
                                                 <li>Temp: </li>
                                                 <li>Wind: </li>
                                                 <li>Humidity: </li>
@@ -75,18 +76,19 @@
                                 </div>
                             </div>
                             <div class="column is-4 is-desktop">
-                                <div class="card">
+                                <div class="card has-text-white">
                                     <header class="card-header">
-                                        <p class="card-header-title">Date Here</p>
+                                        <p id="date-02" class="card-header-title has-text-white">Date</p>
                                     </header>
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="" alt="" class="src">
+                                            <img id="icon-02" src="" alt="" class="src img-alt-02">
+                                            <figcaption id="weather-description-02"></figcaption>
                                         </figure>
                                     </div>
                                     <div class="card-content pb-6 pl-0">
                                         <div class="content">
-                                            <ul>
+                                            <ul id="current-weather-02">
                                                 <li>Temp: </li>
                                                 <li>Wind: </li>
                                                 <li>Humidity: </li>
@@ -96,18 +98,19 @@
                                 </div>
                             </div>
                             <div class="column is-4 is-desktop">
-                                <div class="card">
+                                <div class="card has-text-white">
                                     <header class="card-header">
-                                        <p class="card-header-title">Date Here</p>
+                                        <p id="date-03" class="card-header-title has-text-white">Date</p>
                                     </header>
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="" alt="" class="src">
+                                            <img id="icon-03" src="" alt="" class="src img-alt-03">
+                                            <figcaption id="weather-description-03"></figcaption>
                                         </figure>
                                     </div>
                                     <div class="card-content pb-6 pl-0">
                                         <div class="content">
-                                            <ul>
+                                            <ul id="current-weather-03">
                                                 <li>Temp: </li>
                                                 <li>Wind: </li>
                                                 <li>Humidity: </li>
@@ -117,18 +120,19 @@
                                 </div>
                             </div>
                             <div class="column is-4 is-desktop">
-                                <div class="card">
+                                <div class="card has-text-white">
                                     <header class="card-header">
-                                        <p class="card-header-title">Date Here</p>
+                                        <p id="date-04" class="card-header-title has-text-white">Date</p>
                                     </header>
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="" alt="" class="src">
+                                            <img id="icon-04" src="" alt="" class="src img-alt-04">
+                                            <figcaption id="weather-description-04"></figcaption>
                                         </figure>
                                     </div>
                                     <div class="card-content pb-6 pl-0">
                                         <div class="content">
-                                            <ul>
+                                            <ul id="current-weather-04">
                                                 <li>Temp: </li>
                                                 <li>Wind: </li>
                                                 <li>Humidity: </li>
@@ -138,18 +142,19 @@
                                 </div>
                             </div>
                             <div class="column is-4 is-desktop">
-                                <div class="card">
+                                <div class="card has-text-white">
                                     <header class="card-header">
-                                        <p class="card-header-title">Date Here</p>
+                                        <p id="date-05" class="card-header-title has-text-white">Date</p>
                                     </header>
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="" alt="" class="src">
+                                            <img id="icon-05" src="" alt="" class="src img-alt-05">
+                                            <figcaption id="weather-description-05"></figcaption>
                                         </figure>
                                     </div>
                                     <div class="card-content pb-6 pl-0">
                                         <div class="content">
-                                            <ul>
+                                            <ul id="current-weather-05">
                                                 <li>Temp: </li>
                                                 <li>Wind: </li>
                                                 <li>Humidity: </li>
@@ -171,8 +176,7 @@
     </section>
 
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="./assets/script.js"></script>
 
