@@ -4,11 +4,13 @@ $(document).ready(function () {
     let city = document.querySelector("#city");
 
 
+
     const APIKEY = "ee3bdd85ae12cf0b59312c7a5aa514bb"; //This key will allow us to "fetch" the data from the weather api
 
     //Will be used to input a city name and run our function to get coordinates
     let submit = $("#submit");
-    submit.on("click", function () {
+    submit.on("click", function (event) {
+        event.preventDefault;
         api.getLocation();
     });
 
@@ -55,6 +57,34 @@ $(document).ready(function () {
             let temp;
             let windSpeed;
             let humidityStat;
+            let cityName = resp.city.name;
+            let savedCityItem = document.querySelector("#saved-city");
+
+            //Gets the values of the key in "cityName" and if no item is present, it creates an empty array
+            let cityList = JSON.parse(localStorage.getItem("cityNames")) || [];
+
+            //Will remove any duplicate city names from the array in local storage
+            if (!cityList.includes(cityName)) {
+                cityList.push(cityName);
+            };
+
+            //Sets the elements in the array into strings
+            localStorage.setItem("cityNames", JSON.stringify(cityList));
+
+
+
+            console.log(cityList);
+
+            //FIX DUPLICATE LI's!!!!---
+
+            //Creates list item elements from each city input and appends it to an unordered list element
+            for (let j = 0; j < cityList.length; j++) {
+                let li = document.createElement("li");
+                li.textContent = cityList[j];
+                savedCityItem.appendChild(li);
+                console.log(li);
+            }
+
 
             let currentWeatherData = resp.list[0].dt;
             if (currentWeatherData) {
@@ -68,10 +98,6 @@ $(document).ready(function () {
                 let unix = resp.list[i].dt; //Grabs the list of unix timestamps
                 let stringUnix = unix.toString(); //converts the unix timestamp into a string
                 let date = dayjs.unix(stringUnix).format("MMMM DD YYYY"); //formats the converted unix timestamp date
-
-
-                console.log(date);
-
 
                 //Adds our dates to our  weather cards
                 if (dayjs().add(1, "day").format("YYYY-MM-DD 12:00:00") === resp.list[i].dt_txt) {
@@ -124,7 +150,7 @@ $(document).ready(function () {
                     humidityStat = $("#current-weather-05").children().eq(2).text("Humidity: " + resp.list[i].main.humidity + "%");
                 }
             }
-        }
+        },
     }
 });
 
