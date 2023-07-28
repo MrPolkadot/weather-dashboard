@@ -1,34 +1,61 @@
+:root {
+    --background-color: #1290FE;
+}
+
+
 li {
     list-style: none;
     font-weight: bold;
     margin: 10px;
+    gap: 10px;
 }
 
 figcaption {
     font-weight: bold;
     text-align: center;
 }
+
 @media screen and (max-width: 768px) {
     img {
         height: 200px !important;
         width: 200px !important;
         margin-left: 30px;
     }
+
     figcaption {
         text-align: left;
         margin-left: 20px;
     }
 }
+
 .hero {
     background: rgb(42, 112, 238);
     background: linear-gradient(29deg, rgba(42, 112, 238, 1) 0%, rgba(0, 166, 240, 1) 51%, rgba(234, 253, 37, 1) 98%);
 }
 
 #city-box {
+    color: antiquewhite;
     border: inset 2px whitesmoke;
-    border-radius: 5px;;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    ;
 }
 
+#city-box p {
+    color: antiquewhite;
+}
 .card {
-    background-color: #1290FE;
+    background-color: var(--background-color);
+}
+
+#saved-city li {
+    font-size: 36px;
+    color: antiquewhite;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+#saved-city li:hover {
+    cursor: pointer;
 }
