@@ -1,66 +1,60 @@
 # Weather Dashboard
 
+
+![Weather dashboard start page](./assets/screenshots/weather-page.png)
+
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This is a webpage to get weather data from the city you search. I used [OpenWeather's](https://openweathermap.org/) API to fetch the weather data onto my page. The page is useful to be able to see the current weather and the 5-day forecast of the specified city. By using the CDN Bulma, I learned a lot about understanding the importance of documentation and how quick and simple it was to create CSS into my project. Using the **fetch()** method in javascript is a great tool to grab data from an api and choose what data you want to create your own project.
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Live Page: **https://mrpolkadot.github.io/weather-dashboard/**
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Enter a city name and the current weather plus a 5-day forecast will return.
+   
+![alt text](./assets/screenshots/city-weather.png)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+
+
+The searched cities will get saved and you can click on them to show that city's weather again. 
+![alt text](./assets/screenshots/saved-cities.png)
+
+    
+
 
 ## Credits
 
-Useful links:
+A huge thanks to the [BULMA](https://bulma.io/) css library. I enjoy using it for this project and has become my favorite CDN to use so far!
 
-* https://www.scaler.com/topics/javascript/import-js-file-in-js/
-* Tutorials on how to use the Bulma CSS library- https://www.youtube.com/@NetNinja
+Useful links:
+* Tutorials on how to use the Bulma CSS library- https://youtube.com/playlist?list=PL4cUxeGkcC9iXItWKbaQxcyDT1u6E7a8a
 * CSS Gradient for my colors: https://cssgradient.io/
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+MIT License
 
----
+Copyright (c) 2023 Salvador M
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Badges
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
 

@@ -1,5 +1,6 @@
 :root {
-    --background-color: #1290FE;
+    --background-color: rgba(18, 144, 254);
+    --box-shadow: 2px 5px 3px rgba(49, 146, 237, 0.7);
 }
 
 
@@ -35,17 +36,18 @@ figcaption {
 
 #city-box {
     color: antiquewhite;
-    border: inset 2px whitesmoke;
     border-radius: 5px;
     background-color: var(--background-color);
-    ;
+    box-shadow: var(--box-shadow);
 }
 
 #city-box p {
     color: antiquewhite;
 }
+
 .card {
     background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
 }
 
 #saved-city li {

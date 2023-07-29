@@ -10,12 +10,13 @@ $(document).ready(function () {
 
     const APIKEY = "ee3bdd85ae12cf0b59312c7a5aa514bb"; //This key will allow us to "fetch" the data from the weather api
 
-    //Will be used to input a city name and run our function to get coordinates, get our weather data and dave our city names into local storage
+    //Will be used to input a city name and run our function to get coordinates, get our weather data and save our city names into local storage
     let submit = $("#submit");
-    submit.on("click", function (event) {
+    submit.click(function (event) {
         event.preventDefault;
         event.stopPropagation();
         api.getLocation();
+        city.value = ""; //Clears the input text after the click
     });
 
 
@@ -51,8 +52,6 @@ $(document).ready(function () {
         },
         //This runs through all the data and "handpicks" what we want to then add it to our html elements
         displayWeather: (resp) => {
-            console.log(resp);
-
             let weatherDate;
             let iconImage;
             let iconURL = "https://openweathermap.org/img/wn/"; //URL to fetch the icon images.
@@ -67,36 +66,19 @@ $(document).ready(function () {
             //Sets the value of the key in "cityName"
             localStorage.setItem("cityNames", cityName);
 
-            let cityList = localStorage.getItem("cityNames"); //|| [];
+            let cityList = localStorage.getItem("cityNames");
 
-            //Will remove any duplicate city names from the array in local storage
-            // if (!cityList.includes(cityName)) {
-            //     cityList.push(cityName);
-            // };
-
-            //Sets the elements in the array into strings
-
-
-
-            console.log(cityList);
-
-            //FIX DUPLICATE LI's!!!!---
-
-            //Creates list item elements from each city input and appends it to an unordered list element
-            //for (let j = 0; j < cityList.length; j++) {
-
+            //Creates list items with the city submitted on search click
             let li = document.createElement("li");
             li.textContent = cityList;
             savedCityItem.appendChild(li);
-            console.log(li);
-            //}
-            // li.addEventListener("click", function () {
-            //     api.displayWeather(resp);
-            //     return;
-            // }); 
 
-
-
+            li.addEventListener("click", function (event) {
+                event.preventDefault();
+                api.displayWeather(resp);
+                savedCityItem.removeChild(li);
+                currentCityWeather.textContent = cityName + " " + dayjs().format("(MMMM DD, YYYY hh:mm a)");
+            });
 
             let currentWeatherData = resp.list[0].dt;
             if (currentWeatherData) {
@@ -107,8 +89,7 @@ $(document).ready(function () {
             }
 
 
-
-
+            //Iterates through the "list" data so we can choose an index of the list
             for (let i = 0; i < resp.list.length; i++) {
                 let unix = resp.list[i].dt; //Grabs the list of unix timestamps
                 let stringUnix = unix.toString(); //converts the unix timestamp into a string
@@ -116,12 +97,12 @@ $(document).ready(function () {
 
                 //Adds our dates to our  weather cards
 
-                //If statement that adds a specific amount of days to our current day and compares it to date contained in dt_txt
+                //If statement that adds a specific amount of days to our current day and compares it to date contained in the indexed dt_txt
                 if (dayjs().add(1, "day").format("YYYY-MM-DD 18:00:00") === resp.list[i].dt_txt) {
-                    weatherDate = $("#date-01").html(date);
-                    iconImage = $("#icon-01").attr("src", iconURL + resp.list[i].weather[0].icon + "@4x.png");
-                    imageAlt = $(".img-alt-01").attr("alt", resp.list[i].weather[0].description);
-                    weatherDescription = $("#weather-description-01").html(resp.list[i].weather[0].description.toUpperCase());
+                    weatherDate = $("#date-01").html(date); //Sets the date text using dayjs
+                    iconImage = $("#icon-01").attr("src", iconURL + resp.list[i].weather[0].icon + "@4x.png"); //Adds icon image
+                    imageAlt = $(".img-alt-01").attr("alt", resp.list[i].weather[0].description); //Alt text for the image
+                    weatherDescription = $("#weather-description-01").html(resp.list[i].weather[0].description.toUpperCase()); //Text description for the weather
                     temp = $("#current-weather-01").children().eq(0).text("Temp: " + resp.list[i].main.temp + " °F");
                     windSpeed = $("#current-weather-01").children().eq(1).text("Wind Speed: " + resp.list[i].wind.speed + "mph");
                     humidityStat = $("#current-weather-01").children().eq(2).text("Humidity: " + resp.list[i].main.humidity + "%");
@@ -157,7 +138,7 @@ $(document).ready(function () {
                     humidityStat = $("#current-weather-04").children().eq(2).text("Humidity: " + resp.list[i].main.humidity + "%");
 
                 }
-                if (dayjs().add(5, "day").format("YYYY-MM-DD 18:00:00") === resp.list[i].dt_txt) {
+                if (dayjs().add(5, "day").format("YYYY-MM-DD 00:00:00") === resp.list[i].dt_txt) {
                     weatherDate = $("#date-05").html(date);
                     iconImage = $("#icon-05").attr("src", iconURL + resp.list[i].weather[0].icon + "@4x.png")
                     imageAlt = $(".img-alt-05").attr("alt", resp.list[i].weather[0].description);

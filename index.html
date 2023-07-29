@@ -5,18 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
     <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
-    <section class="py-6 hero is-info is-medium">
+    <header class="py-6 hero is-info is-medium">
         <div class="ml-6 hero-head">
             <h1 class="title is-1 has-text-center">Weather Dashboard</h1>
         </div>
-    </section>
+    </header>
 
     <section class="section">
         <div class="columns">
@@ -162,18 +160,19 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
         </div>
-
     </section>
-
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p class="is-size-4">The weather data is received from <strong><a href="https://openweathermap.org/"
+                target="_blank">OpenWeather</a>®.</strong></p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
