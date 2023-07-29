@@ -24,7 +24,7 @@ $(document).ready(function () {
     const api = {
         //Grabs the coordinates of the city entered
         getLocation: () => {
-            let geoApi = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.value + "&appid=" + APIKEY;
+            let geoApi = "https://api.openweathermap.org/geo/1.0/direct?q=" + city.value + "&appid=" + APIKEY;
             fetch(geoApi)
                 .then(function (response) {
                     console.log(response);
